@@ -1,0 +1,14 @@
+<mat-card class='cart'>
+  <mat-card-title> Cart </mat-card-title>
+  <mat-card-content>
+    <ng-container *ngIf="isEmptyCart; else empty">
+      <ul>
+        <li *ngFor="let product of products; trackBy: trackByFn"> {{ product.name }} - {{product.count}} </li>
+      </ul>
+    </ng-container>
+
+    <ng-template #empty>
+      Cart is empty
+    </ng-template>
+  </mat-card-content>
+</mat-card>
