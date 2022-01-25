@@ -1,0 +1,18 @@
+<mat-card class='card'>
+  <mat-card-title> {{ product.name }}</mat-card-title>
+  <mat-card-content>
+    <ng-container *ngIf="product.isAvailable; else notAvailable">
+      <ul>
+        <li>description: {{ product.description }}</li>
+        <li>price: {{ product.price }}</li>
+        <li>category: {{ product.category }}</li>
+      </ul>
+      <button mat-button color="primary" (click)="onAddToCart(product.name)">Buy</button>
+    </ng-container>
+
+    <ng-template #notAvailable>
+      {{ product.name }} is not available
+    </ng-template>
+  </mat-card-content>
+</mat-card>
+

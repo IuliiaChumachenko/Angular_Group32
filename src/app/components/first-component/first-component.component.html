@@ -1,0 +1,14 @@
+<h4> {{ title }}</h4>
+<mat-card class='card' *ngFor="let book of books">
+  <mat-card-title> {{ book.name }}</mat-card-title>
+  <mat-card-content>
+    <ul *ngIf="book.isAvailable; else notAvailable">
+      <li>description: {{ book.description }}</li>
+      <li>price: {{ book.price }}</li>
+      <li>category: {{ book.category }}</li>
+    </ul>
+    <ng-template #notAvailable>
+      Book is not available
+    </ng-template>
+  </mat-card-content>
+</mat-card>
